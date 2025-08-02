@@ -71,3 +71,13 @@ with open("sample.txt", "r") as file:
     words = content.split()  # Splits the string by whitespace into a list of words
     word_count = len(words)
 print(word_count)
+
+# Write a program to flatten a 2D list
+
+my2dlist=[[1,2,3],[4,5],[6]]
+list=[]
+for sublis in my2dlist:
+    for num in sublis:
+        list.append(num)
+print(list)
+    
