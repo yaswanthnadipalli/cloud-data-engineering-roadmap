@@ -1,4 +1,4 @@
-
+'''
 #A function to check whether a string is a palindrome.
 
 def is_palindrome(str):
@@ -80,4 +80,42 @@ for sublis in my2dlist:
     for num in sublis:
         list.append(num)
 print(list)
-    
+    '''
+import csv
+from collections import defaultdict
+
+# Step 1: Create the CSV file
+with open("people.csv", mode="w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age", "Country"])
+    writer.writerow(["Alice", 30, "USA"])
+    writer.writerow(["Bob", 25, "Canada"])
+    writer.writerow(["Charlie", 35, "UK"])
+    writer.writerow(["Diana", 28, "India"])
+
+# Step 2: Read and display contents
+print("CSV Contents:")
+with open("people.csv", mode="r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+# Step 3: Print names of people older than 28
+print("\nPeople older than 28:")
+with open("people.csv", mode="r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        if int(row["Age"]) > 28:
+            print(row["Name"])
+
+# Step 4: Count people from each country
+country_count = defaultdict(int)
+with open("people.csv", mode="r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        country = row["Country"]
+        country_count[country] += 1
+
+print("\nPeople per country:")
+for country, count in country_count.items():
+    print(f"{country}: {count}")
