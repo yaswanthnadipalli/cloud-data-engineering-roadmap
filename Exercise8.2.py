@@ -8,9 +8,9 @@ df = pd.read_csv("realtime_data.csv")
 df["timestamp"] = pd.to_datetime(df["timestamp"])
 
 # Step 3: Plot temperature and humidity
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(10, 5))  # 10 length and 5 is the height
 
-plt.plot(df["timestamp"], df["temperature"], label="Temperature", marker='o')
+plt.plot(df["timestamp"], df["temperature"], label="Temperature", marker='o')  # x-axis is timestamp and y axix is value temperature and humidity
 plt.plot(df["timestamp"], df["humidity"], label="Humidity", marker='x')
 
 plt.title("Real-Time Sensor Data")
